@@ -1,0 +1,535 @@
+﻿1. a)
+rakib@rakib-VirtualBox:~$ pwd
+
+
+/home/rakib
+
+
+rakib@rakib-VirtualBox:~$ cd Desktop
+
+
+rakib@rakib-VirtualBox:~/Desktop$ touch 22241038_1.txt 22241038_2.txt 22241038_3.txt 22241038_4.txt
+
+
+rakib@rakib-VirtualBox:~/Desktop$ ls
+
+
+22241038_1.txt  22241038_2.txt  22241038_3.txt  22241038_4.txt
+
+
+rakib@rakib-VirtualBox:~/Desktop$ mkdir rakib1 rakib2
+
+
+rakib@rakib-VirtualBox:~/Desktop$ ls
+
+
+22241038_1.txt  22241038_2.txt  22241038_3.txt  22241038_4.txt  rakib1  rakib2
+
+
+rakib@rakib-VirtualBox:~/Desktop$ mv 22241038_1.txt 22241038_2.txt 22241038_3.txt rakib1
+
+
+rakib@rakib-VirtualBox:~/Desktop$ ls
+
+
+22241038_4.txt  rakib1  rakib2
+
+
+rakib@rakib-VirtualBox:~/Desktop$ cp rakib1/22241038_1.txt rakib1/22241038_2.txt rakib2
+
+
+rakib@rakib-VirtualBox:~/Desktop$ ls
+
+
+22241038_4.txt  rakib1  rakib2
+
+
+rakib@rakib-VirtualBox:~/Desktop$ mkdir rakib3
+
+
+rakib@rakib-VirtualBox:~/Desktop$ cp -r rakib1/* rakib3
+
+
+rakib@rakib-VirtualBox:~/Desktop$ ls
+
+
+22241038_4.txt  rakib1  rakib2  rakib3
+
+
+rakib@rakib-VirtualBox:~/Desktop$ cd rakib3
+
+
+rakib@rakib-VirtualBox:~/Desktop/rakib3$ ls
+
+
+22241038_1.txt  22241038_2.txt  22241038_3.txt
+
+
+rakib@rakib-VirtualBox:~/Desktop/rakib3$ ls -l
+
+
+total 0
+
+
+-rw-rw-r-- 1 rakib rakib 0 Oct 24 22:14 22241038_1.txt
+
+
+-rw-rw-r-- 1 rakib rakib 0 Oct 24 22:14 22241038_2.txt
+
+
+-rw-rw-r-- 1 rakib rakib 0 Oct 24 22:14 22241038_3.txt
+
+
+rakib@rakib-VirtualBox:~/Desktop/rakib3$ chmod o=rx,g=rx *
+
+
+rakib@rakib-VirtualBox:~/Desktop/rakib3$ ls -l
+
+
+total 0
+
+
+-rw-r-xr-x 1 rakib rakib 0 Oct 24 22:14 22241038_1.txt
+
+
+-rw-r-xr-x 1 rakib rakib 0 Oct 24 22:14 22241038_2.txt
+
+
+-rw-r-xr-x 1 rakib rakib 0 Oct 24 22:14 22241038_3.txt
+
+
+rakib@rakib-VirtualBox:~/Desktop/rakib3$ cd ..
+
+
+rakib@rakib-VirtualBox:~/Desktop$ ls
+
+
+22241038_4.txt  rakib1  rakib2  rakib3
+
+
+
+
+rakib@rakib-VirtualBox:~/Desktop$ sudo mv rakib3 /
+
+
+[sudo] password for rakib:
+
+
+rakib@rakib-VirtualBox:~/Desktop$ ls
+
+
+22241038_4.txt  rakib1  rakib2
+
+
+rakib@rakib-VirtualBox:~/Desktop$ rm -rf *
+
+
+rakib@rakib-VirtualBox:~/Desktop$ ls
+
+
+rakib@rakib-VirtualBox:~/Desktop$
+1. b) 
+rakib@rakib-VirtualBox:~$ cat> course_info.txt
+
+
+CSE 320- Data communications section 01
+
+
+CSE 321- Operating Systems section 02
+
+
+CSE 331- Automata and Computability section 07
+
+
+CSE 370- Database Systems section 07
+
+
+SOC 101- Introduction to sociology section 01
+rakib@rakib-VirtualBox:~$ grep -o -i CSE course_info.txt | wc -l
+4
+rakib@rakib-VirtualBox:~$
+
+
+1. c) 
+rakib@rakib-VirtualBox:~$ ls -a
+
+
+.                    fern-wifi-cracker  snap
+
+
+..                   .gnupg                 .ssh
+
+
+221Lab               .java                  .sudo_as_admin_successful
+
+
+.bash_history        .local                 Templates
+
+
+.bash_logout         .mozilla               .thunderbird
+
+
+.bashrc              Music                  .vboxclient-clipboard.pid
+
+
+.cache               .pam_environment   .vboxclient-display-svga-x11.pid
+
+
+.config              Pictures               .vboxclient-draganddrop.pid
+
+
+course               .pki                   .vboxclient-seamless.pid
+
+
+course_info.txt  .profile               Videos
+
+
+Desktop              Public                 .vscode
+
+
+Documents            PycharmProjects
+
+
+Downloads            .python_history
+
+
+rakib@rakib-VirtualBox:~$
+
+
+
+
+1. d) 
+rakib@rakib-VirtualBox:~$ cat> show.txt
+
+
+Show
+
+
+only
+
+
+lines
+
+
+5-17
+
+
+of a
+
+
+.txt
+
+
+file
+
+
+(
+
+
+you
+
+
+have
+
+
+to
+
+
+create
+
+
+a
+
+
+file
+
+
+containing
+
+
+more
+
+
+than
+
+
+17
+
+
+line
+
+
+)
+
+
+[
+
+
+2
+
+
+Marks
+
+
+]
+
+
+rakib@rakib-VirtualBox:~$ sed -n 5,17p show.txt
+
+
+of a
+
+
+.txt
+
+
+file
+
+
+(
+
+
+you
+
+
+have
+
+
+to
+
+
+create
+
+
+a
+
+
+file
+
+
+containing
+
+
+more
+
+
+than
+
+
+rakib@rakib-VirtualBox:~$
+
+
+
+
+
+
+C-Codes
+
+
+
+
+2. a)
+#include <stdio.h>
+
+
+void add(int a, int b) {
+        int result = a + b;
+        printf("Addition result: %d\n", result);
+}
+void sub(int a, int b) {
+        int result = a - b;
+        printf("Subtraction result: %d\n", result);
+}
+
+
+void mul(int a, int b) {
+        int result = a * b;
+        printf("Multiplication result: %d\n", result);
+}
+
+
+int main() {
+        int a, b, c;
+        char op;
+
+
+        printf("Enter the numbers:\n");
+        scanf("%d%d%c", &a, &b, &op);
+
+
+        if (a > b) {
+            sub(a, b);
+        } else if (a < b) {
+            add(a, b);
+        } else {
+            mul(a, b);
+        }
+
+
+        return 0;
+}
+
+
+
+
+2. b)
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void spaceRemove(char str[], int size) {
+        int i = 0;
+        int j = 0;
+    
+        for (; i < size; i++) {
+            if (i > 0 && str[i] == ' ' && str[i - 1] != ' ') {
+                str[j] = str[i];
+                j++;}
+             else if (str[i] != ' ') {
+                str[j] = str[i];
+                j++;}
+            
+        }
+}
+
+
+int main() {
+
+
+        FILE *file1;
+
+
+        file1 = fopen("2b_input.txt", "r");
+    
+        char str[1000];
+        fscanf(file1, "%[^\n]s", str);
+
+
+
+
+        spaceRemove(str, 1000); //
+        printf("Required sentence: %s\n", str);
+
+
+        FILE *fileWrite;
+        fileWrite = fopen("2b_out.txt", "w");
+        fprintf(fileWrite, "%s\n", str);
+        return 0;
+}
+
+
+2b_input.txt: I          love             Python              Programming.
+
+
+2. c)
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+void passGen(char pass[]) {
+        int length = strlen(pass);
+        bool lower = 0, upper = 0, dig = 0, splchr = 0;
+    
+
+
+        for (int i = 0; i < length; i++) {
+            if (pass[i] >= 65 && pass[i] <= 90)
+                upper = true;
+            if (pass[i] >= 97 && pass[i] <= 122)
+                lower = true;
+            if (pass[i] >= 48 && pass[i] <= 57)
+                dig = true;
+            if (pass[i] == '_' || pass[i] == '$' || pass[i] == '#' ||
+                pass[i] == '@')
+                splchr = true;
+        }
+
+
+        if (lower && upper && dig && splchr) {
+            printf("OK\n");}
+         else {
+            
+            if (!upper) {
+                printf("Uppercase character  missing, \n");}
+            
+            if (!lower) {
+                printf("Lowercase character  missing, \n");}
+            
+            if (!dig) {
+                printf("Digit missing, \n");}
+            if (!splchr) {
+                printf("Special Character missing,\n ");}
+
+
+        }
+}
+
+
+int main() {
+
+
+        char pass1[] = "BR@CUspring";
+        char pass2[] = "bracuspring";
+        char pass3[] = "BR@CU20spring22";
+
+
+        passGen(pass1);
+        //passGen(pass2);
+        //passGen(pass3);
+        return 0;
+}
+
+
+2. d)
+#include <stdio.h>
+#include <string.h>
+
+
+void mailChk(char str[]) {
+
+
+        char *flag = strtok(str, "@");
+        flag = strtok(NULL, "@");
+
+
+        if (strcmp(flag, "kaaj.com") == 0) {
+            printf("Email address is outdated\n");}
+         else {
+            printf("Email address is okay\n");}
+}
+
+
+int main() {
+        char str1[] = "fahimd@kaaj.com";
+        char str2[] = "zaki@sheba.xyz";
+
+
+        mailChk(str1);
+        mailChk(str2);
+        return 0;
+}
+
+
+2.e)
+#include <stdio.h>
+#include <string.h>
+
+
+void palChk(char str[]){
+int i = 0;
+int j = strlen(str) - 1;
+while (i<j){
+if (str[i] != str[j]){
+printf("Not Palindrome\n");
+return;}
+i++,j--;
+}
+printf("Palindrome\n");
+}
+
+
+int main(){
+palChk("AbA");
+return 0;}
